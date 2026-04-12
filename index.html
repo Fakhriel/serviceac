@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ArcticAir — Jasa AC profesional terpercaya. Cuci, pasang, servis & perawatan AC dengan teknisi bersertifikat. Respon cepat, garansi 30 hari." />
+  <meta name="theme-color" content="#0a1628" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ArcticAir — AC Contractor Profesional" />
+  <meta property="og:description" content="Teknisi bersertifikat, respon cepat, garansi 30 hari. Hubungi kami sekarang!" />
+  <meta property="og:type" content="website" />
+
+  <title>Tehnik MsY — Service AC</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Typography: Syne (display) + Plus Jakarta Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SKIP LINK (Accessibility)
+  ============================================================ -->
+  <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
+
+  <!-- ============================================================
+       1. STICKY NAVBAR
+  ============================================================ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner container">
+
+      <!-- Logo — ganti logo.png dengan file PNG logo Anda -->
+      <a href="#hero" class="navbar__logo" aria-label="TehnikMsY Beranda">
+        <img
+          src="logo.png"
+          alt="TehnikMsY Logo"
+          width="40"
+          height="40"
+          class="navbar__logo-img"
+          onerror="this.onerror=null; this.style.display='none'; document.getElementById('logo-svg-fallback').style.display='inline-block';"
+        />
+        <!-- Fallback SVG jika logo.png belum ada -->
+        <svg id="logo-svg-fallback" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none;">
+          <circle cx="20" cy="20" r="19" stroke="url(#logo-grad)" stroke-width="2"/>
+          <path d="M20 6v28M6 20h28M9.37 9.37l21.26 21.26M30.63 9.37L9.37 30.63" stroke="url(#logo-grad2)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="5" fill="url(#logo-grad)"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="logo-grad2" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#1d4ed8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="navbar__logo-text">Tehnik<strong>MsY</strong></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar__nav" aria-label="Navigasi utama">
+        <ul class="navbar__links" role="list">
+          <li><a href="#about" class="navbar__link">Tentang Kami</a></li>
+          <li><a href="#services" class="navbar__link">Layanan</a></li>
+          <li><a href="#gallery" class="navbar__link">Galeri</a></li>
+          <li><a href="#contact" class="navbar__link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <!-- Direct Call CTA -->
+      <a href="tel:+6281234567890" class="btn btn--call navbar__cta" aria-label="Hubungi kami langsung via telepon">
+        <span class="btn--call__pulse" aria-hidden="true"></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Hubungi Sekarang
+      </a>
+
+      <!-- Hamburger (Mobile) -->
+      <button class="navbar__hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu navigasi mobile" aria-hidden="true">
+      <nav>
+        <ul class="mobile-menu__links" role="list">
+          <li><a href="#about" class="mobile-menu__link">Tentang Kami</a></li>
+          <li><a href="#services" class="mobile-menu__link">Layanan</a></li>
+          <li><a href="#gallery" class="mobile-menu__link">Galeri</a></li>
+          <li><a href="#contact" class="mobile-menu__link">Kontak</a></li>
+          <li>
+            <a href="tel:+6281234567890" class="btn btn--call btn--full-mobile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Hubungi Sekarang
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- ============================================================
+         2. HERO SECTION
+         Taruh file "hero-bg.png" di folder yang sama dengan index.html
+         agar background gambar muncul.
+    ============================================================ -->
+    <section class="hero" id="hero" aria-label="Halaman utama">
+      <!-- Animated background grid -->
+      <div class="hero__bg-grid" aria-hidden="true"></div>
+
+      <!-- Floating frost orbs -->
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        
+
+        <!-- Headline -->
+        <h1 class="hero__headline" id="hero-headline">
+          <span class="hero__headline-line">Solusi AC Anda,</span>
+          <span class="hero__headline-line hero__headline-line--accent">Dingin Sempurna.</span>
+          <span class="hero__headline-line">Tanpa Kompromi.</span>
+        </h1>
+
+        <!-- Sub-headline -->
+        <p class="hero__sub" id="hero-sub">
+          Teknisi bersertifikat siap menangani cuci, pasang, servis, dan perawatan AC Anda — 
+          dengan respon kilat dan <strong>Garansi 30 Hari</strong> tanpa syarat tersembunyi.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero__ctas" id="hero-ctas">
+          <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20saya%20ingin%20konsultasi%20layanan%20AC." 
+             class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+            Chat WhatsApp
+          </a>
+          <a href="#services" class="btn btn--outline btn--lg">
+            Lihat Layanan
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         3. DYNAMIC MARQUEE
+    ============================================================ -->
+    <div class="marquee-wrapper" aria-label="Keunggulan layanan kami" role="marquee">
+      <div class="marquee-track" id="marquee-track">
+        <!-- Items are duplicated via JS for seamless loop -->
+        <div class="marquee-inner" id="marquee-inner">
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Respon Cepat 60 Menit
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Teknisi Bersertifikat
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Garansi 30 Hari
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Harga Transparan
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Spare Part Original
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Layanan 7 Hari Seminggu
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Disinfektan Antibakteri
+          </span>
+          <span class="marquee-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Semua Merk AC
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         4. ABOUT US
+    ============================================================ -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container about__grid">
+
+        <!-- Image column -->
+        <div class="about__image-wrap" id="about-image">
+          <div class="about__image-frame" aria-hidden="true">
+            <span class="about__corner about__corner--tl"></span>
+            <span class="about__corner about__corner--br"></span>
+          </div>
+          <!-- Placeholder: ganti dengan <img src="about.png" alt="..."> jika sudah punya foto -->
+          <div class="about__image-placeholder" role="img" aria-label="Tim teknisi ArcticAir sedang bekerja profesional">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="rgba(56,189,248,0.4)" stroke-width="1" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <span>Tim Profesional Kami</span>
+          </div>
+
+          <!-- Floating badge -->
+  
+        </div>
+
+        <!-- Copy column -->
+        <div class="about__copy" id="about-copy">
+          <span class="section-label">Tentang Kami</span>
+          <h2 class="section-heading" id="about-heading">
+            Lebih dari Sekadar Servis — <em>Komitmen Penuh</em> untuk Kenyamanan Anda
+          </h2>
+          <p class="about__text">
+            TehnikMsY berdiri sejak - dengan satu misi: menghadirkan udara sejuk yang 
+            andal di setiap sudut rumah dan gedung Anda. Kami bukan sekadar tukang servis — 
+            -
+          </p>
+          <p class="about__text">
+            -
+            -
+            -
+          </p>
+
+          <!-- Value pillars -->
+          <ul class="about__pillars" role="list">
+            <li class="about__pillar">
+              <div class="about__pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div>
+                <strong>Respon Kilat</strong>
+                <p>Teknisi tiba dalam 60 menit di area Jabodetabek.</p>
+              </div>
+            </li>
+            <li class="about__pillar">
+              <div class="about__pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <strong>Garansi Penuh 30 Hari</strong>
+                <p>Jika ada masalah pasca-servis, kami kembali tanpa biaya tambahan.</p>
+              </div>
+            </li>
+            <li class="about__pillar">
+              <div class="about__pillar-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <strong>Transparansi Harga</strong>
+                <p>Estimasi biaya diberikan sebelum pekerjaan dimulai — tanpa biaya tersembunyi.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#contact" class="btn btn--primary">
+            Konsultasi Gratis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. SERVICE GRID
+    ============================================================ -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Layanan Kami</span>
+          <h2 class="section-heading" id="services-heading">Solusi AC Lengkap <em>Satu Atap</em></h2>
+          <p class="section-sub">Dari perawatan rutin hingga instalasi baru — semua ditangani oleh tangan-tangan ahli kami.</p>
+        </div>
+
+        <div class="services__grid">
+
+          <!-- Card 1: AC Cleaning -->
+          <article class="service-card" data-service="cuci-ac">
+            <div class="service-card__icon-wrap" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 4 2 6M12 12C12 7 17 4 22 6"/><path d="M2 6c4 2 7 6 10 6s6-4 10-6"/><circle cx="12" cy="4" r="2"/></svg>
+            </div>
+            <h3 class="service-card__title">Cuci AC</h3>
+            <p class="service-card__desc">Pembersihan menyeluruh filter, evaporator, dan kondensor dengan cairan antibakteri ramah lingkungan. Udara lebih segar, AC lebih hemat listrik.</p>
+            <ul class="service-card__features" role="list">
+              <li>Cuci dalam & luar unit</li>
+              <li>Disinfektan antibakteri</li>
+              <li>Cek kebocoran freon</li>
+            </ul>
+            <div class="service-card__footer">
+              <span class="service-card__price">Mulai Rp 75.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20saya%20ingin%20pesan%20layanan%20Cuci%20AC." 
+                 class="btn btn--sm btn--primary" target="_blank" rel="noopener noreferrer" aria-label="Pesan layanan Cuci AC via WhatsApp">
+                Pesan
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: Installation -->
+          <article class="service-card service-card--featured" data-service="pasang-ac">
+            <div class="service-card__badge" aria-label="Layanan terpopuler">Terpopuler</div>
+            <div class="service-card__icon-wrap" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="8" rx="2"/><path d="M7 11v4a2 2 0 002 2h6a2 2 0 002-2v-4"/><path d="M12 15v4M8 19h8"/></svg>
+            </div>
+            <h3 class="service-card__title">Pasang AC</h3>
+            <p class="service-card__desc">Instalasi AC baru dengan pemasangan pipa, kabel, dan bracket yang rapi dan kuat. Tersedia untuk unit 0.5 PK hingga 2 PK semua merk.</p>
+            <ul class="service-card__features" role="list">
+              <li>Semua merek & kapasitas</li>
+              <li>Pemasangan bracket premium</li>
+              <li>Tes dingin & kebocoran</li>
+            </ul>
+            <div class="service-card__footer">
+              <span class="service-card__price">Mulai Rp 350.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20saya%20ingin%20pesan%20layanan%20Pemasangan%20AC%20baru." 
+                 class="btn btn--sm btn--primary" target="_blank" rel="noopener noreferrer" aria-label="Pesan layanan Pasang AC via WhatsApp">
+                Pesan
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Repair -->
+          <article class="service-card" data-service="servis-ac">
+            <div class="service-card__icon-wrap" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 class="service-card__title">Servis & Perbaikan</h3>
+            <p class="service-card__desc">Diagnosis akurat dengan alat modern. AC tidak dingin, bocor, berisik, atau mati total — kami temukan akarnya dan selesaikan tuntas.</p>
+            <ul class="service-card__features" role="list">
+              <li>Diagnosa gratis di lokasi</li>
+              <li>Penambahan freon R32/R410</li>
+              <li>Ganti komponen original</li>
+            </ul>
+            <div class="service-card__footer">
+              <span class="service-card__price">Mulai Rp 150.000</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20AC%20saya%20bermasalah%20dan%20perlu%20diperbaiki." 
+                 class="btn btn--sm btn--primary" target="_blank" rel="noopener noreferrer" aria-label="Pesan layanan Servis AC via WhatsApp">
+                Pesan
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: Maintenance -->
+          <article class="service-card" data-service="maintenance-ac">
+            <div class="service-card__icon-wrap" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M12 6v6l4 2"/><path d="M16.24 7.76a6 6 0 010 8.49M7.76 7.76a6 6 0 000 8.49"/></svg>
+            </div>
+            <h3 class="service-card__title">Maintenance Berkala</h3>
+            <p class="service-card__desc">Paket perawatan terjadwal bulanan atau 3 bulanan. Perpanjang usia AC Anda, jaga garansi pabrik tetap valid, dan hemat listrik hingga 30%.</p>
+            <ul class="service-card__features" role="list">
+              <li>Kontrak 6 & 12 bulan</li>
+              <li>Laporan kondisi AC digital</li>
+              <li>Prioritas jadwal & diskon 15%</li>
+            </ul>
+            <div class="service-card__footer">
+              <span class="service-card__price">Mulai Rp 199.000/bln</span>
+              <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20saya%20tertarik%20paket%20Maintenance%20AC%20berkala." 
+                 class="btn btn--sm btn--primary" target="_blank" rel="noopener noreferrer" aria-label="Pesan paket Maintenance AC via WhatsApp">
+                Pesan
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. GALLERY — Grid + Pagination
+         Tambah foto mudah: edit array galleryItems di main.js
+    ============================================================ -->
+    <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Galeri Kerja</span>
+          <h2 class="section-heading" id="gallery-heading">Hasil Terbaik <em>Kami Tunjukkan</em></h2>
+          <p class="section-sub">Setiap pengerjaan kami dokumentasikan — karena kualitas tidak perlu sembunyi.</p>
+        </div>
+
+        <!-- Gallery grid (items dirender oleh JS) -->
+        <div class="gallery__grid" id="gallery-grid" role="list" aria-label="Foto hasil kerja ArcticAir">
+          <!-- JS akan mengisi ini -->
+        </div>
+
+        <!-- Pagination (dirender oleh JS) -->
+        <nav class="gallery__pagination" id="gallery-pagination" aria-label="Halaman galeri">
+          <!-- JS akan mengisi ini -->
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. CONTACT & LEAD GEN
+    ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container contact__grid">
+
+        <!-- Form column -->
+        <div class="contact__form-wrap" id="contact-form-wrap">
+          <span class="section-label">Hubungi Kami</span>
+          <h2 class="section-heading" id="contact-heading">Dapatkan <em>Estimasi Gratis</em> Sekarang</h2>
+          <p class="contact__sub">Isi form di bawah dan tim kami akan menghubungi Anda dalam <strong>kurang dari 1 jam</strong>.</p>
+
+          <form class="contact-form" id="contact-form" novalidate>
+
+            <!-- Name -->
+            <div class="form-group">
+              <label for="name" class="form-label">Nama Lengkap <span aria-hidden="true">*</span></label>
+              <div class="form-input-wrap">
+                <svg class="form-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Contoh: Budi Santoso" required autocomplete="name" minlength="2" />
+              </div>
+              <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone" class="form-label">Nomor HP / WhatsApp <span aria-hidden="true">*</span></label>
+              <div class="form-input-wrap">
+                <svg class="form-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="08xx-xxxx-xxxx" required autocomplete="tel" />
+              </div>
+              <span class="form-error" id="phone-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message" class="form-label">Keluhan / Pesan <span aria-hidden="true">*</span></label>
+              <div class="form-input-wrap">
+                <svg class="form-icon form-icon--top" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <textarea id="message" name="message" class="form-input form-textarea" placeholder="Contoh: AC kamar tidur tidak dingin dan ada suara berisik..." required minlength="10" rows="4"></textarea>
+              </div>
+              <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Anti-Spam Math Challenge -->
+            <div class="form-group antispam-group">
+              <label class="form-label" for="antispam">
+                Verifikasi
+                <span class="antispam-question" id="antispam-question" aria-live="polite"></span>
+              </label>
+              <div class="form-input-wrap">
+                <svg class="form-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                <input type="number" id="antispam" name="antispam" class="form-input" placeholder="Masukkan jawaban..." required aria-describedby="antispam-question" />
+              </div>
+              <span class="form-error" id="antispam-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Privacy Checkbox -->
+            <div class="form-group form-group--check">
+              <label class="form-checkbox-label" for="privacy">
+                <input type="checkbox" id="privacy" name="privacy" class="form-checkbox" required />
+                <span class="form-checkbox-custom" aria-hidden="true"></span>
+                <span>
+                  Saya menyetujui 
+                  <button type="button" class="form-link" data-modal="modal-kebijakan" aria-label="Baca Kebijakan Privasi kami">Kebijakan Privasi</button> 
+                  dan 
+                  <button type="button" class="form-link" data-modal="modal-syarat" aria-label="Baca Syarat dan Ketentuan kami">Syarat &amp; Ketentuan</button> 
+                  TehnikMsY. Data Anda hanya digunakan untuk keperluan layanan.
+                </span>
+              </label>
+              <span class="form-error" id="privacy-error" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn--primary btn--lg btn--full" id="submit-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+              Kirim ke WhatsApp
+              <span class="btn-lock-icon" id="btn-lock" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Map column -->
+        <div class="contact__map-wrap" id="contact-map-wrap">
+          <div class="contact__info">
+            <h3 class="contact__info-title">Kantor Kami</h3>
+
+            <div class="contact__info-items">
+              <div class="contact__info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <strong>Alamat</strong>
+                  <span>-</span>
+                </div>
+              </div>
+
+              <div class="contact__info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <div>
+                  <strong>Telepon</strong>
+                  <a href="tel:+6281234567890">+62 813-8685-3456</a>
+                </div>
+              </div>
+
+              <div class="contact__info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:hello@arcticair.id">email@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact__info-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div>
+                  <strong>Jam Operasional</strong>
+                  <span>-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lazy-loaded Google Maps iframe -->
+          <div class="contact__map" id="map-container">
+            <button class="map-load-btn" id="map-load-btn" aria-label="Muat peta lokasi kami">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Klik untuk Muat Peta
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- ============================================================
+       8. FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+
+    <!-- End CTA banner -->
+    <div class="footer__cta-banner">
+      <div class="container footer__cta-content">
+        <div>
+          <h2 class="footer__cta-title">AC Anda Bermasalah? <em>Jangan Tunggu Lebih Lama.</em></h2>
+          <p>Hubungi kami sekarang dan dapatkan respons dalam <strong>60 menit</strong>.</p>
+        </div>
+        <div class="footer__cta-actions">
+          <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20saya%20butuh%20bantuan%20segera." 
+             class="btn btn--primary btn--lg" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+            Chat WhatsApp Sekarang
+          </a>
+          <a href="tel:+6281234567890" class="btn btn--outline btn--lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Telepon Langsung
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer body -->
+    <div class="footer__body">
+      <div class="container footer__body-grid">
+
+        <!-- Brand column -->
+        <div class="footer__brand">
+          <a href="#hero" class="navbar__logo" aria-label="ArcticAir Beranda">
+            <!-- Logo PNG di footer -->
+            <img
+              src="logo.png"
+              alt="ArcticAir Logo"
+              width="36"
+              height="36"
+              class="navbar__logo-img"
+              onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='inline-block';"
+            />
+            <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true" style="display:none;"><circle cx="20" cy="20" r="19" stroke="url(#flogo-grad)" stroke-width="2"/><path d="M20 6v28M6 20h28M9.37 9.37l21.26 21.26M30.63 9.37L9.37 30.63" stroke="url(#flogo-grad2)" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="5" fill="url(#flogo-grad)"/><defs><linearGradient id="flogo-grad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/></linearGradient><linearGradient id="flogo-grad2" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#7dd3fc"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs></svg>
+            <span class="navbar__logo-text">Tehnik<strong>MsY</strong></span>
+          </a>
+          <p class="footer__brand-desc">
+            Mitra AC terpercaya Anda sejak -. Melayani lebih dari - pelanggan di Jabodetabek dengan standar profesional tertinggi.
+          </p>
+
+          <!-- Social links -->
+          <div class="footer__socials">
+            <a href="https://instagram.com/arcticairid" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow ArcticAir di Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://facebook.com/arcticairid" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow ArcticAir di Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@arcticairid" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow ArcticAir di TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://wa.me/6281234567890" class="footer__social-link footer__social-link--wa" target="_blank" rel="noopener noreferrer" aria-label="Hubungi ArcticAir via WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Layanan Links -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Layanan</h4>
+          <ul class="footer__links" role="list">
+            <li><a href="#services">Cuci AC</a></li>
+            <li><a href="#services">Pasang AC</a></li>
+            <li><a href="#services">Servis &amp; Perbaikan</a></li>
+            <li><a href="#services">Maintenance Berkala</a></li>
+            <li><a href="#contact">Konsultasi Gratis</a></li>
+          </ul>
+        </div>
+
+        <!-- Area Links -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Area Layanan</h4>
+          <ul class="footer__links" role="list">
+            <li><a href="#contact">Jakarta Selatan</a></li>
+            <li><a href="#contact">Jakarta Pusat</a></li>
+            <li><a href="#contact">Jakarta Barat</a></li>
+            <li><a href="#contact">Tangerang Selatan</a></li>
+            <li><a href="#contact">Bekasi &amp; Depok</a></li>
+          </ul>
+        </div>
+
+        <!-- Info Links -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Informasi</h4>
+          <ul class="footer__links" role="list">
+            <li><a href="#about">Tentang TehnikMsY</a></li>
+            <li><a href="#gallery">Galeri Kerja</a></li>
+            <!-- Trigger modal Kebijakan Privasi -->
+            <li>
+              <button class="footer__link-btn" data-modal="modal-kebijakan">Kebijakan Privasi</button>
+            </li>
+            <!-- Trigger modal Syarat & Ketentuan -->
+            <li>
+              <button class="footer__link-btn" data-modal="modal-syarat">Syarat &amp; Ketentuan</button>
+            </li>
+            <li><a href="#contact">Hubungi Kami</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bar">
+      <div class="container footer__bar-content">
+        <p>&copy; <span id="footer-year"></span> TehnikMsY. All right reserve 2026</p>
+        <p class="footer__bar-right">Dibuat dengan ByFakhriel</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Floating WhatsApp FAB -->
+  <a href="https://wa.me/6281234567890?text=Halo%20ArcticAir%2C%20saya%20butuh%20bantuan." 
+     class="fab-wa" id="fab-wa" target="_blank" rel="noopener noreferrer" 
+     aria-label="Chat WhatsApp dengan ArcticAir">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.1 1.51 5.833L0 24l6.335-1.54A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.816 9.816 0 01-5.006-1.371l-.36-.214-3.727.906.975-3.632-.234-.374A9.796 9.796 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+    <span class="fab-wa__pulse" aria-hidden="true"></span>
+  </a>
+
+  <!-- ============================================================
+       MODAL: Kebijakan Privasi
+  ============================================================ -->
+  <div class="modal" id="modal-kebijakan" role="dialog" aria-modal="true" aria-labelledby="modal-kebijakan-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__box">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-kebijakan-title">Kebijakan Privasi</h2>
+        <button class="modal__close" data-modal-close aria-label="Tutup modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p class="modal__updated">Terakhir diperbarui: 1 Januari 2025</p>
+
+        <h3>1. Informasi yang Kami Kumpulkan</h3>
+        <p>tehnikmsy mengumpulkan informasi yang Anda berikan secara langsung, termasuk nama lengkap, nomor telepon, dan pesan/keluhan yang Anda kirimkan melalui formulir kontak di website kami.</p>
+
+        <h3>2. Penggunaan Informasi</h3>
+        <p>Informasi yang Anda berikan hanya digunakan untuk keperluan berikut:</p>
+        <ul>
+          <li>Merespons pertanyaan dan permintaan layanan Anda</li>
+          <li>Menghubungi Anda terkait pesanan atau jadwal teknisi</li>
+          <li>Memberikan informasi layanan yang relevan</li>
+          <li>Meningkatkan kualitas layanan kami</li>
+        </ul>
+
+        <h3>3. Keamanan Data</h3>
+        <p>Kami berkomitmen untuk menjaga keamanan data pribadi Anda. Data yang Anda kirimkan tidak akan dijual, dipinjamkan, atau dibagikan kepada pihak ketiga tanpa persetujuan Anda, kecuali diwajibkan oleh hukum.</p>
+
+        <h3>4. Retensi Data</h3>
+        <p>Data Anda disimpan selama diperlukan untuk keperluan layanan aktif. Anda dapat meminta penghapusan data dengan menghubungi kami melalui WhatsApp atau email.</p>
+
+        <h3>5. Cookie</h3>
+        <p>Website kami menggunakan cookie teknis minimal untuk memastikan fungsi dasar website berjalan dengan baik. Kami tidak menggunakan cookie untuk pelacakan iklan.</p>
+
+        <h3>6. Kontak</h3>
+        <p>Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan hubungi kami di <strong>hello@arcticair.id</strong> atau melalui WhatsApp di <strong>+62 812-3456-7890</strong>.</p>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--primary" data-modal-close>Saya Mengerti</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL: Syarat & Ketentuan
+  ============================================================ -->
+  <div class="modal" id="modal-syarat" role="dialog" aria-modal="true" aria-labelledby="modal-syarat-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__box">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-syarat-title">Syarat &amp; Ketentuan</h2>
+        <button class="modal__close" data-modal-close aria-label="Tutup modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p class="modal__updated">Terakhir diperbarui: 1 Januari 2025</p>
+
+        <h3>1. Penerimaan Syarat</h3>
+        <p>Dengan menggunakan layanan TehnikMsY, Anda menyetujui syarat dan ketentuan ini. Jika Anda tidak setuju, harap tidak menggunakan layanan kami.</p>
+
+        <h3>2. Layanan yang Disediakan</h3>
+        <p>TehnikMsY menyediakan jasa perawatan, perbaikan, instalasi, dan pembersihan perangkat AC (Air Conditioner) di wilayah Jabodetabek. Layanan mencakup:</p>
+        <ul>
+          <li>Cuci dan pembersihan unit AC</li>
+          <li>Pemasangan unit AC baru</li>
+          <li>Servis dan perbaikan AC bermasalah</li>
+          <li>Paket maintenance berkala</li>
+        </ul>
+
+        <h3>3. Garansi Layanan</h3>
+        <p>tehnikmsy memberikan garansi <strong>30 hari</strong> untuk setiap pekerjaan servis. Garansi berlaku untuk masalah yang timbul akibat kesalahan pengerjaan oleh teknisi kami. Garansi tidak berlaku untuk kerusakan akibat pemakaian tidak wajar atau bencana alam.</p>
+
+        <h3>4. Jadwal dan Pembatalan</h3>
+        <p>Jadwal layanan dikonfirmasi melalui WhatsApp. Pembatalan atau perubahan jadwal harap dilakukan minimal 2 jam sebelum waktu yang disepakati. Pembatalan mendadak dapat dikenakan biaya perjalanan teknisi.</p>
+
+        <h3>5. Harga dan Pembayaran</h3>
+        <p>Harga yang tertera di website adalah harga estimasi awal. Biaya final akan dikonfirmasi setelah diagnosa di lokasi. Pembayaran dapat dilakukan secara tunai, transfer bank, atau dompet digital (GoPay, OVO, Dana).</p>
+
+        <h3>6. Tanggung Jawab</h3>
+        <p>TehnikMsY tidak bertanggung jawab atas kerusakan yang terjadi akibat kondisi unit AC yang sudah melewati masa pakai wajar, komponen yang tidak memenuhi standar pabrikan, atau faktor eksternal di luar kendali kami.</p>
+
+        <h3>7. Perubahan Syarat</h3>
+        <p>TehnikMsY berhak mengubah syarat dan ketentuan ini sewaktu-waktu. Perubahan akan diinformasikan melalui website dan berlaku sejak tanggal pembaruan.</p>
+
+        <h3>8. Hubungi Kami</h3>
+        <p>Pertanyaan mengenai syarat dan ketentuan ini dapat diajukan ke <strong>email@gmail.com</strong>.</p>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--primary" data-modal-close>Saya Setuju</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
