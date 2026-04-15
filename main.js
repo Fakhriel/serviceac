@@ -654,7 +654,7 @@
       iframe.setAttribute('width', '100%');
       iframe.setAttribute('height', '100%');
       iframe.src =
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31732.042724294508!2d107.0313821484104!3d-6.196859652601533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698f8e1762cd33%3A0x14556d92c4527b0c!2sService%20AC%20MsY%20tehnik!5e0!3m2!1sen!2sid!4v1776000934597!5m2!1sen!2sid';
+        '';
 
       mapContainer.appendChild(iframe);
 
